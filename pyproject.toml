@@ -1,0 +1,18 @@
+[project]
+name = "rf-processtree"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "robotframework>=7.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=8.32.0",
+    "rf-processtree",
+]
+
+[tool.uv.sources]
+rf-processtree = { workspace = true }
