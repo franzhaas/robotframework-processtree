@@ -11,6 +11,8 @@ from rf_processtree._spawner import _start_child
 if _rf_processtree_base._rf_processtree_base._linkRedirectQueue is None:
     _rf_processtree_base._rf_processtree_base._linkRedirectQueue = redirectProcess._redirectionProcess
 
+if _rf_processtree_base._rf_processtree_base._linkRedirectFileName is None:
+    _rf_processtree_base._rf_processtree_base._linkRedirectFileName = redirectProcess._redirectionFile
 
 def _make_ofile_safely(prefix, suffix):
     handle, name = tempfile.mkstemp(prefix=prefix, suffix=suffix)
