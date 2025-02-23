@@ -8,30 +8,28 @@ import contextlib
 
 
 def _redirectionProcess(q, odir):
-    with open(odir / "redirect.html", "w") as f:
-        f.write("""<!DOCTYPE html>
-<html>
-<head>
-    <script src="redirects.js"></script>
-    <script>
-        window.onload = function () {
-            const hashPart = window.location.hash.substring(1);
-            if (linkMappings[hashPart]) {
-                window.location.href = linkMappings[hashPart];
-            }
-        };
-    </script>
-</head>
-</html>""")
     redirects = {}
     while True:
         source, dest = q.get()
         redirects[source] = dest
         handle, name = tempfile.mkstemp(dir=odir)
         with open(handle, "w") as f:
-            f.write("const linkMappings = ")
-            json.dump(redirects, f)
-        os.replace(name, odir / "redirects.js")
+            f.write(f"""<!DOCTYPE html>
+<html>
+<head>
+    <script src="redirects.js"></script>
+    <script>
+        const linkMappings = {json.dumps(redirects)}
+        window.onload = function () {{
+            const hashPart = window.location.hash.substring(1);
+            if (linkMappings[hashPart]) {{
+                window.location.href = linkMappings[hashPart];
+            }}
+        }};
+    </script>
+</head>
+</html>""")
+        os.replace(name, odir / "redirect.html")
         q.task_done()
 
 
