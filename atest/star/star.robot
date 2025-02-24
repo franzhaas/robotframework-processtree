@@ -1,5 +1,5 @@
 *** Settings ***
-Library           rf_processtree.rf_processtree_parent    atest/star/shine.robot   AS   Parent
+Library           rf_processtree    atest/star/shine.robot   AS   Parent
 *** Test Cases ***
 start it
     Parent.spawn

@@ -1,12 +1,13 @@
 import io
 import robot
-from rf_processtree import _rf_processtree_base, rf_processtree_child
+import rf_processtree
+from multiprocessing import Queue, JoinableQueue
 
 
-def _start_child(target_suite: str, readQueue, writeQueue, redeirectQueue, redirectFileName, logfile, reportfile, consoleFile, outXml):
+def _start_child(target_suite: str, readQueue: Queue, writeQueue: Queue, redeirectQueue: JoinableQueue, redirectFileName: str, logfile: str, reportfile: str, consoleFile: str, outXml: str, loglevel):
     console = io.TextIOWrapper(open(consoleFile, "wb", buffering=0), write_through=True)
-    _rf_processtree_base._rf_processtree_base._linkRedirectQueue = redeirectQueue
-    _rf_processtree_base._rf_processtree_base._linkRedirectFileName = redirectFileName
-    rf_processtree_child.rf_processtree_child._readQueue = readQueue
-    rf_processtree_child.rf_processtree_child._writeQueue = writeQueue
-    robot.run(target_suite, outputdir=".", loglevel="TRACE", log=logfile, report=reportfile, output=outXml, stdout=console)
+    rf_processtree.rf_processtree._linkRedirectQueue = redeirectQueue
+    rf_processtree.rf_processtree._linkRedirectFileName = redirectFileName
+    rf_processtree.rf_processtree._readQueue = writeQueue
+    rf_processtree.rf_processtree._writeQueue = readQueue
+    robot.run(target_suite, outputdir=".", loglevel=loglevel, log=logfile, report=reportfile, output=outXml, stdout=console)

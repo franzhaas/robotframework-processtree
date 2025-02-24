@@ -1,5 +1,5 @@
 *** Settings ***
-Library           rf_processtree.rf_processtree_child   AS   Child
+Library           rf_processtree   AS   Child
 *** Test Cases ***
 Child
     ${MSG}=       Child.receive_message
