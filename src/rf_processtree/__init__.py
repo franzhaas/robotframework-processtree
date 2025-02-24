@@ -125,7 +125,10 @@ class rf_processtree():
         are treated as equals.
 
         There is no way to identify a specific child all siblings are equals. The 
-        only way to comunicate is via the message queues.
+        only way to comunicate with them is via the message queues.
+
+        The childs die when the parent dies. This is treated in the logs/reports as a fail, 
+        if this is not desired, implement a "we are done, lets go home ⊙" message.
         """
         assert self._target_suite is not None, "This is a child instance, cannot spawn another child process you can create a parent instance in a child suite though"
         logfile = _make_ofile_safely(prefix=self._oDir / "log_", suffix=".html")

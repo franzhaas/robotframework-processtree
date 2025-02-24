@@ -1,11 +1,20 @@
 [project]
 name = "rf_processtree"
 dynamic = ["version"]
-
+authors = [
+    {name = "Franz Haas", email = "franz.dominik.haas@gmail.com"},
+]
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = ["robotframework"]
+license = "Apache-2.0"
+keywords = ["robotframework"]
+
+[project.urls]
+Documentation = "https://marketsquare.github.io/robotframework-processtree"
+Repository = "https://github.com/MarketSquare/robotframework-processtree"
+Release_Notes = "https://marketsquare.github.io/robotframework-processtree/release_notes.md"
 
 [dependency-groups]
 dev = ["ipython", "xonsh[full]"]
