@@ -8,11 +8,18 @@ requires-python = ">=3.8"
 dependencies = ["robotframework"]
 
 [dependency-groups]
-dev = ["ipython", "xonsh[full]", "ruff"]
+dev = ["ipython", "xonsh[full]"]
+test = ["ruff", "mypy"]
+
+[tool.hatch.version]
+source = "versioningit"
+default-version = "0.0.0+unknown"
+
+[tool.hatch.version.format]
+distance = "{next_version}.dev{distance}+{vcs}{rev}"
+dirty = "{version}+dirty"
+distance-dirty = "{next_version}.dev{distance}+{vcs}{rev}.dirty"
 
 [build-system]
 requires = ["hatchling", "versioningit"]
 build-backend = "hatchling.build"
-
-[tool.hatch.version]
-source = "versioningit"
