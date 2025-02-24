@@ -53,10 +53,10 @@ window.onload = function () {{
 
 @library(listener='SELF')
 class rf_processtree():
-    _linkRedirectQueue = None
-    _linkRedirectFileName = "redirect.html"
-    _writeQueue = None
-    _readQueue = None 
+    _linkRedirectQueue: Optional[JoinableQueue] = None
+    _linkRedirectFileName: str = "redirect.html"
+    _writeQueue: Optional[Queue]  = None
+    _readQueue: Optional[Queue] = None
 
     def __init__(self, target_suite: Optional[str] = None ):
         """Inititalizes either a parent or a child instance depending on the parameter
@@ -92,6 +92,9 @@ class rf_processtree():
         Logging is generated which allows to follow a mesage to its destination.
         
         Limitations of the multiprocessing  Queues apply (only picklable objects can be sent)."""
+        assert self._linkRedirectQueue is not None, "Redirect system is not online, there is an issue with the linking of messages"
+        assert self._writeQueue is not None, "Interprocess communication queue is not online, there is an issue communicating between processes"
+        
         payload = _queue_bewtween_processes_payload(link_forward=str(uuid.uuid4()), link_back=str(uuid.uuid4()), message=message)
         self._linkRedirectQueue.put(_logging_data(key=payload.link_back, dest=f"{self._logFilePath}#{self.id}"))
         self._writeQueue.put(payload)
@@ -105,6 +108,8 @@ class rf_processtree():
         Logging is generated which allows to trace the source of a mesage.
 
         Limitations of the multiprocessing  Queues apply (only picklable objects can be received)."""
+        assert self._linkRedirectQueue is not None, "Redirect system is not online, there is an issue with the linking of messages"
+        assert self._readQueue is not None, "Interprocess communication queue is not online, there is an issue communicating between processes"
         payload = self._readQueue.get(block=True, timeout=timeout)
         self._linkRedirectQueue.put(_logging_data(key=payload.link_forward, dest=f"{self._logFilePath}#{self.id}"))
         logger.info(f"""Receiving message from <a href="{self._linkRedirectFileName}#{payload.link_back}">log</a>: {payload.message}""", html=True)
