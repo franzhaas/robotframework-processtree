@@ -1,0 +1,10 @@
+<!DOCTYPE html><html><head><script>
+const linkMappings = {redir_hashmap}
+window.onload = function () {{
+    const hashPart = window.location.hash.substring(1);
+    if (linkMappings[hashPart]) {{
+        window.location.href = linkMappings[hashPart];
+    }} else {{
+        document.body.innerHTML = '<h1>Error: broken link. likely this link points to something which has not materialised... Or you have overwritten the redirect file in a subsequent run</h1>';
+    }}
+}};</script></head></html>

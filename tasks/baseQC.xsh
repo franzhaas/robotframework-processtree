@@ -1,4 +1,4 @@
 uv lock
 uv sync --extra test
 
-uv run robot -L TRACE  atest/star/star.robot
+uv run robot -L TRACE  atest/simple/stem.robot
