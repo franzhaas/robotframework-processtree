@@ -24,8 +24,10 @@ git add docs/index.html f"docs/robotframework_processtree-{version}.html"
 git add docs/example_results/
 
 input("please write an entry in the changelog at docs/release_notes.md and press enter to continue")
+pandoc -o docs/release_notes.html docs/release_notes.md
+git add docs/release_notes.html docs/release_notes.md
 git commit -m f"release {version}"
-git tag f"v{version}" -m "release {version} release process"
+git tag f"v{version}" -m f"release {version} release process"
 uv build
 uv publish
 git push --tags

@@ -12,9 +12,9 @@ license = "Apache-2.0"
 keywords = ["robotframework"]
 
 [project.urls]
-Documentation = "https://marketsquare.github.io/robotframework-processtree"
-Repository = "https://github.com/MarketSquare/robotframework-processtree"
-Release_Notes = "https://marketsquare.github.io/robotframework-processtree/release_notes.md"
+Documentation = "https://franzhaas.github.io/robotframework-processtree/index.html"
+Repository = "https://github.com/franzhaas/robotframework-processtree"
+Release_Notes = "https://franzhaas.github.io/robotframework-processtree/release_notes.md"
 
 [dependency-groups]
 dev = ["ipython", "xonsh[full]"]

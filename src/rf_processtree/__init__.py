@@ -50,6 +50,8 @@ class rf_processtree:
     lines running simultaneously, but it is possible, and trying it out is likely to be a
     good approach to learn about it.
 
+    Example results can be found (here)[./docs/example_results/log.html].
+
     == Table of contents ==
 
     %TOC%
