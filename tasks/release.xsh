@@ -1,4 +1,5 @@
 import os
+import shutil
 
 git checkout uv.lock
 git_status = (str(!(git status)).split(os.linesep))
@@ -15,7 +16,13 @@ version = ".".join(version)
 
 uv run --no-sync libdoc f"--version={version}" src/rf_processtree  docs/index.html
 cp docs/index.html f"docs/robotframework_processtree-{version}.html"
+
+shutil.rmtree("example_results/", ignore_errors=True)
+uv run robot -L TRACE -d example_results  atest/example/parent/
+
 git add docs/index.html f"docs/robotframework_processtree-{version}.html"
+git add example_results/
+
 input("please write an entry in the changelog at docs/release_notes.md and press enter to continue")
 git commit -m f"release {version}"
 git tag f"v{version}" -m "release {version} release process"

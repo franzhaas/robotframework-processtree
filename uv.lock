@@ -395,11 +395,13 @@ dev = [
     { name = "ipython", version = "8.12.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.9'" },
     { name = "ipython", version = "8.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.9.*'" },
     { name = "ipython", version = "8.32.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+    { name = "xonsh", version = "0.14.0", source = { registry = "https://pypi.org/simple" }, extra = ["full"], marker = "python_full_version < '3.9'" },
+    { name = "xonsh", version = "0.19.2", source = { registry = "https://pypi.org/simple" }, extra = ["full"], marker = "python_full_version >= '3.9'" },
+]
+test = [
     { name = "mypy", version = "1.14.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.9'" },
     { name = "mypy", version = "1.15.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.9'" },
     { name = "ruff" },
-    { name = "xonsh", version = "0.14.0", source = { registry = "https://pypi.org/simple" }, extra = ["full"], marker = "python_full_version < '3.9'" },
-    { name = "xonsh", version = "0.19.2", source = { registry = "https://pypi.org/simple" }, extra = ["full"], marker = "python_full_version >= '3.9'" },
 ]
 
 [package.metadata]
@@ -408,9 +410,11 @@ requires-dist = [{ name = "robotframework" }]
 [package.metadata.requires-dev]
 dev = [
     { name = "ipython" },
-    { name = "mypy", specifier = ">=1.14.1" },
-    { name = "ruff" },
     { name = "xonsh", extras = ["full"] },
+]
+test = [
+    { name = "mypy" },
+    { name = "ruff" },
 ]
 
 [[package]]

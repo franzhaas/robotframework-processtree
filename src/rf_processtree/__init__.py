@@ -298,6 +298,11 @@ class rf_processtree:
         assert self._target_suite is not None, "This is a child instance, cannot close the connection. (wrong instance?)"
 
         for _ in self._processes:
-            self._write_queue.put("close")
+            self._write_queue.put(_QueueBetweenProcessesPayload(
+            type=_message_types.close,
+            link_forward=None,
+            link_back=None,
+            message=None,
+        ))
         self._write_queue__ = self._write_queue  # to avoid garbage collection
         self._write_queue = None

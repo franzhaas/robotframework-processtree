@@ -32,3 +32,7 @@ distance-dirty = "{next_version}.dev{distance}+{vcs}{rev}.dirty"
 [build-system]
 requires = ["hatchling", "versioningit"]
 build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 150
+                                                                                                                                                      

@@ -1,5 +1,5 @@
 *** Settings ***
-Library           rf_processtree    atest/simple/leaf.robot   AS   Parent
+Library           rf_processtree    atest/example/child/repeated.robot   AS   Parent
 *** Test Cases ***
 start it
     Parent.spawn
