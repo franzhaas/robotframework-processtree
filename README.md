@@ -72,9 +72,12 @@ Queue+process-based concurrency is used successfully by stable systems (Erlang, 
 data exchange.
 
 ### AIO
-The AIO solution currently has open issues with concurrency safety, [tkinter and threads](https://github.com/test-fullautomation/robotframework/issues/110), [deadlock](https://github.com/test-fullautomation/robotframework/issues/117), and [Timeout handling](https://github.com/test-fullautomation/robotframework/issues/118). I am constructive and try to help fix these issues [fix](https://github.com/robotframework/robotframework/pull/5343) which fixes the tkinter problem of AIO with threads on Windows.
+The AIO solution currently has open issues with concurrency safety,
+[tkinter and threads](https://github.com/test-fullautomation/robotframework/issues/110),
+[deadlock](https://github.com/test-fullautomation/robotframework/issues/117), and 
+[Timeout handling](https://github.com/test-fullautomation/robotframework/issues/118). I am constructive and try to help fix these issues [fix](https://github.com/robotframework/robotframework/pull/5343) which fixes the tkinter problem of AIO with threads on Windows.
 
-However, in my point of view, the deadlock issue is not solvable, at best manageable, and I lack experience on the signaling issue.
+However, in my point of view, the deadlock issue is not solveable, at best manageable, and I lack experience on the signaling issue.
 
 ### Improve Guidance and Examples and Infrastructure for the Current Situation
 
@@ -102,10 +105,11 @@ class parallel_wait:
 
     def _get_readables(self):
         (recvable, _, __,) = select.select(self.keys(), [], [], self._timeout)
-        return (item for item in recvable if item.recv(1))
+        return (item for item in recvable if s.recv(1, socket.MSG_PEEK))
 ```
 Every time one of the filehandles/sockets becomes readable, the corresponding keyword gets called.
 
-This concept can be extended to file handles on some systems (Linux), and even more situations, with relative ease.
+This concept can be extended to file handles on some systems (Linux), with relative ease.
 
-Infrastructure to make Python keywords run in parallel, while still being connected to the Robot Framework infrastructure (`run_keyword`), where Robot Framework continues to run in a single thread. (no example).
+Infrastructure to make Python keywords run in parallel, while still being connected to the Robot Framework
+infrastructure (`run_keyword`), where Robot Framework continues to run in a single thread. (no example).
