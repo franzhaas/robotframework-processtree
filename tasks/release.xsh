@@ -18,10 +18,10 @@ uv run --no-sync libdoc f"--version={version}" src/rf_processtree  docs/index.ht
 cp docs/index.html f"docs/robotframework_processtree-{version}.html"
 
 shutil.rmtree("example_results/", ignore_errors=True)
-uv run robot -L TRACE -d example_results  atest/example/parent/
+uv run robot -L TRACE -d docs/example_results  atest/example/parent/
 
 git add docs/index.html f"docs/robotframework_processtree-{version}.html"
-git add example_results/
+git add docs/example_results/
 
 input("please write an entry in the changelog at docs/release_notes.md and press enter to continue")
 git commit -m f"release {version}"
