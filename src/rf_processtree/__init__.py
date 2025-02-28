@@ -20,27 +20,38 @@ import enum
 _message_types = enum.Enum("_message_types", ["payload", "close"])
 
 _LoggingData = namedtuple("_LoggingData", ["key", "dest"])
-_QueueBetweenProcessesPayload = namedtuple("_QueueBetweenProcessesPayload", ["type", "link_forward", "link_back", "message"])
+_QueueBetweenProcessesPayload = namedtuple(
+    "_QueueBetweenProcessesPayload", ["type", "link_forward", "link_back", "message"]
+)
+
 
 def _short_uuid():
     return base64.urlsafe_b64encode(uuid.uuid4().bytes).decode("utf-8").rstrip("=")
 
+
 class _QueueClosed(Exception):
     pass
 
-def _redirection_process_worker(q: JoinableQueue, odir: str, redirection_file: pathlib.Path):
+
+def _redirection_process_worker(
+    q: JoinableQueue, odir: str, redirection_file: pathlib.Path
+):
     redirects = {}
     while True:
         payload = q.get()
         redirects[payload.key] = payload.dest
         handle, name = tempfile.mkstemp(dir=odir)
         with open(handle, "w") as f:
-            f.write(read_text("rf_processtree", "redir_template.html").format(redir_hashmap=dumps(redirects)))
+            f.write(
+                read_text("rf_processtree", "redir_template.html").format(
+                    redir_hashmap=dumps(redirects)
+                )
+            )
         os.replace(name, odir / redirection_file)
         q.task_done()
 
 
-@library(listener='SELF')
+@library(listener="SELF")
 class rf_processtree:
     """This library allows to spawn child processes which run robot suites. I am personally
     a bit unsure weather or not it is a good thing to have multiple robotframework execution
@@ -53,14 +64,14 @@ class rf_processtree:
 
     == Concept ==
 
-    Communication between the parent and the children is done via message queues, no 
+    Communication between the parent and the children is done via message queues, no
     communication between children is possible (hence the name, tree).
 
     The childs currently run in a new processspace, the start methods are limited to
-    forkserver and spawn. The default is spawn, which is suported on all platforms 
+    forkserver and spawn. The default is spawn, which is suported on all platforms
     and thread safe in all situations, forkserver is safe if python was not embedded
-    in a threaded application (if you use the "robot" command or start robotframework 
-    from a regular python process, forkserver is safe for you). The start method 
+    in a threaded application (if you use the "robot" command or start robotframework
+    from a regular python process, forkserver is safe for you). The start method
     "fork" is not supported, as it is not thread safe.
 
     == Future outlook ==
@@ -72,18 +83,21 @@ class rf_processtree:
     There is an effort at (Bosch)[https://github.com/test-fullautomation/robotframework]
     to modify robotframework core to add threads to the robotframework language. This
     would also allow to run multiple robotframework sequences simultaneously. It allows
-    to define threads inline (as oposed to this one which needs them to be defined as 
-    suites), making it less effort to define a thread, which is great but has the 
+    to define threads inline (as oposed to this one which needs them to be defined as
+    suites), making it less effort to define a thread, which is great but has the
     downside of less clear seperation and shared state. Logging inside the log.html is
     currently limited to the existance of the thread, as oposed to having all steps logged.
     """
+
     _start_method: Optional[str] = None
     _link_redirect_queue: Optional[JoinableQueue] = None
     _link_redirect_file_name: pathlib.Path = pathlib.Path("redirect.html")
     _write_queue: Optional[Queue] = None
     _read_queue: Optional[Queue] = None
 
-    def __init__(self, target_suite: Optional[str] = None, start_method: Optional[str] = None):
+    def __init__(
+        self, target_suite: Optional[str] = None, start_method: Optional[str] = None
+    ):
         """Initializes either a parent or a child instance depending on the parameter
 
         - If no target suite is given -> this is a child
@@ -107,27 +121,51 @@ class rf_processtree:
                 case (method, None):
                     pass  # self._start_method is already set, no change needed
                 case (method1, method2):
-                    assert method1 == method2, f"Start method cannot be changed after initialization {self._start_method} != {start_method}"
-            assert self._start_method in (set(mp.get_all_start_methods()) ^ {"fork"}), f"Start method {self._start_method} is not available on this system (fork is not suported)"
+                    assert method1 == method2, (
+                        f"Start method cannot be changed after initialization {self._start_method} != {start_method}"
+                    )
+            assert self._start_method in (set(mp.get_all_start_methods()) ^ {"fork"}), (
+                f"Start method {self._start_method} is not available on this system (fork is not suported)"
+            )
 
             self._child_starter = mp.get_context(self._start_method)
             self._target_suite = target_suite
-            self._o_dir = pathlib.Path(BuiltIn.BuiltIn().get_variable_value("${OUTPUTDIR}"))
-            self._log_file_path = pathlib.Path(BuiltIn.BuiltIn().get_variable_value("${LOG_FILE}")).relative_to(self._o_dir)
+            self._o_dir = pathlib.Path(
+                BuiltIn.BuiltIn().get_variable_value("${OUTPUTDIR}")
+            )
+            self._log_file_path = pathlib.Path(
+                BuiltIn.BuiltIn().get_variable_value("${LOG_FILE}")
+            ).relative_to(self._o_dir)
             self._loglevel = BuiltIn.BuiltIn().get_variable_value("${LOG LEVEL}")
             self._processes = []
 
             if target_suite is None:
-                assert self._write_queue is not None, "Parent did not provide a write queue"
-                assert self._read_queue is not None, "Parent did not provide a read queue"
-                assert self._link_redirect_queue is not None, "Parent did not provide a link redirect queue"
+                assert self._write_queue is not None, (
+                    "Parent did not provide a write queue"
+                )
+                assert self._read_queue is not None, (
+                    "Parent did not provide a read queue"
+                )
+                assert self._link_redirect_queue is not None, (
+                    "Parent did not provide a link redirect queue"
+                )
                 self._link_redirect_file_name = "../" / self._link_redirect_file_name
             else:
                 self._read_queue = self._child_starter.Queue()
                 self._write_queue = self._child_starter.Queue()
                 if self._link_redirect_queue is None:
-                    self.__class__._link_redirect_queue = self._child_starter.JoinableQueue()
-                    self._child_starter.Process(target=_redirection_process_worker, args=(self._link_redirect_queue, self._o_dir, self._link_redirect_file_name), daemon=True).start()
+                    self.__class__._link_redirect_queue = (
+                        self._child_starter.JoinableQueue()
+                    )
+                    self._child_starter.Process(
+                        target=_redirection_process_worker,
+                        args=(
+                            self._link_redirect_queue,
+                            self._o_dir,
+                            self._link_redirect_file_name,
+                        ),
+                        daemon=True,
+                    ).start()
 
     def start_keyword(self, data, result):
         self.id = result.id
@@ -137,22 +175,36 @@ class rf_processtree:
         """Send a message to the child process
 
         Logging is generated which allows to follow a message to its destination.
-        
+
         Limitations of the multiprocessing Queues apply (only picklable objects can be sent).
         """
-        assert self._link_redirect_queue is not None, "Redirect system is not online, there is an issue with the linking of messages"
-        assert self._write_queue is not None, "Interprocess communication queue is not online, there is an issue communicating between processes, queue closed?"
-        
-        payload = _QueueBetweenProcessesPayload(type=_message_types.payload, link_forward=_short_uuid(), link_back=_short_uuid(), message=message)
-        self._link_redirect_queue.put(_LoggingData(key=payload.link_back, dest=f"{self._log_file_path}#{self.id}"))
+        assert self._link_redirect_queue is not None, (
+            "Redirect system is not online, there is an issue with the linking of messages"
+        )
+        assert self._write_queue is not None, (
+            "Interprocess communication queue is not online, there is an issue communicating between processes, queue closed?"
+        )
+
+        payload = _QueueBetweenProcessesPayload(
+            type=_message_types.payload,
+            link_forward=_short_uuid(),
+            link_back=_short_uuid(),
+            message=message,
+        )
+        self._link_redirect_queue.put(
+            _LoggingData(key=payload.link_back, dest=f"{self._log_file_path}#{self.id}")
+        )
         self._write_queue.put(payload)
-        logger.info(f"""Sending message to <a href="{self._link_redirect_file_name}#{payload.link_forward}">log</a>: {message}""", html=True)
+        logger.info(
+            f"""Sending message to <a href="{self._link_redirect_file_name}#{payload.link_forward}">log</a>: {message}""",
+            html=True,
+        )
         self._link_redirect_queue.join()
 
     @keyword
     def receive_message(self, timeout: Optional[float] = None) -> Any:
         """Receive message
-        
+
         Logging is generated which allows to trace the source of a message.
 
         Limitations of the multiprocessing Queues apply (only picklable objects can be received).
@@ -164,13 +216,25 @@ class rf_processtree:
             assert False, "Queue is closed, no more messages can be received"
 
     def _receive_message(self, timeout: Optional[float] = None) -> Any:
-        assert self._link_redirect_queue is not None, "Redirect system is not online, there is an issue with the linking of messages"
-        assert self._read_queue is not None, "Interprocess communication queue is not online, there is an issue communicating between processes, queue closed?"
+        assert self._link_redirect_queue is not None, (
+            "Redirect system is not online, there is an issue with the linking of messages"
+        )
+        assert self._read_queue is not None, (
+            "Interprocess communication queue is not online, there is an issue communicating between processes, queue closed?"
+        )
         payload = self._read_queue.get(block=True, timeout=timeout)
         match payload.type:
             case _message_types.payload:
-                self._link_redirect_queue.put(_LoggingData(key=payload.link_forward, dest=f"{self._log_file_path}#{self.id}"))
-                logger.info(f"""Receiving message from <a href="{self._link_redirect_file_name}#{payload.link_back}">log</a>: {payload.message}""", html=True)
+                self._link_redirect_queue.put(
+                    _LoggingData(
+                        key=payload.link_forward,
+                        dest=f"{self._log_file_path}#{self.id}",
+                    )
+                )
+                logger.info(
+                    f"""Receiving message from <a href="{self._link_redirect_file_name}#{payload.link_back}">log</a>: {payload.message}""",
+                    html=True,
+                )
                 self._link_redirect_queue.join()
                 return payload.message
             case _message_types.close:
@@ -183,26 +247,45 @@ class rf_processtree:
     def spawn(self) -> None:
         """
         Spawns a child process which will run the suite provided in the constructor.
-        
-        It is possible to spawn multiple child processes, in which case all of them 
+
+        It is possible to spawn multiple child processes, in which case all of them
         are treated as equals.
 
-        There is no way to identify a specific child; all siblings are equals. The 
+        There is no way to identify a specific child; all siblings are equals. The
         only way to communicate with them is via the message queues.
 
-        The children die when the parent dies. This is treated in the logs/reports as a 
-        fail, use the close_connection keyword to close the queue. This tells the 
-        children that the queue is closed, and by convention this means "I did what 
+        The children die when the parent dies. This is treated in the logs/reports as a
+        fail, use the close_connection keyword to close the queue. This tells the
+        children that the queue is closed, and by convention this means "I did what
         needed to be done, and i went home ⊙".
         """
-        assert self._target_suite is not None, "This is a child instance, cannot spawn another child process. You can create a parent instance in a child suite though."
-        _o_dir = tempfile.TemporaryDirectory(dir=self._o_dir, prefix="rf_tree_node_", delete=False).name
-        p = self._child_starter.Process(args=(self._target_suite, self._read_queue, self._write_queue, self._link_redirect_queue, self._link_redirect_file_name, _o_dir, self._start_method,),
-                                        target=_spawner.start_child, daemon=True, kwargs={"loglevel": self._loglevel, "outputdir": self._o_dir})
+        assert self._target_suite is not None, (
+            "This is a child instance, cannot spawn another child process. You can create a parent instance in a child suite though."
+        )
+        _o_dir = tempfile.TemporaryDirectory(
+            dir=self._o_dir, prefix="rf_tree_node_", delete=False
+        ).name
+        p = self._child_starter.Process(
+            args=(
+                self._target_suite,
+                self._read_queue,
+                self._write_queue,
+                self._link_redirect_queue,
+                self._link_redirect_file_name,
+                _o_dir,
+                self._start_method,
+            ),
+            target=_spawner.start_child,
+            daemon=True,
+            kwargs={"loglevel": self._loglevel, "outputdir": self._o_dir},
+        )
         p.start()
         self._processes.append(p)
         _o_dir = pathlib.Path(_o_dir).relative_to(self._o_dir)
-        logger.info(f"""Started child process for suite {self._target_suite}, log file: <a href="./{_o_dir}/log.html">log</a>, report file: <a href="{_o_dir}/report.html">report</a>, console file: <a href="{_o_dir}/console.log">console</a>""", html=True)
+        logger.info(
+            f"""Started child process for suite {self._target_suite}, log file: <a href="./{_o_dir}/log.html">log</a>, report file: <a href="{_o_dir}/report.html">report</a>, console file: <a href="{_o_dir}/console.log">console</a>""",
+            html=True,
+        )
 
     @keyword
     def wait_for_processes(self, timeout: float = 1.0):
@@ -219,7 +302,7 @@ class rf_processtree:
             assert not item.is_alive(), f"Child process {item} did not finish in time"
 
     @keyword
-    def run_keyword_on_received_items_until_queue_is_closed(self, keyword:str):
+    def run_keyword_on_received_items_until_queue_is_closed(self, keyword: str):
         """Read all items from the queue and run the keyword with the item as argument.
 
         This is a blocking call, it will read items until the queue is closed.
@@ -240,10 +323,14 @@ class rf_processtree:
 
         This is the "I did what needed to be done, and i went home ⊙" signal.
         """
-        assert self._write_queue is not None, "Interprocess communication queue is not online, there is an issue communicating between processes, queue closed?"
-        assert self._target_suite is not None, "This is a child instance, cannot close the connection. (wrong instance?)"
+        assert self._write_queue is not None, (
+            "Interprocess communication queue is not online, there is an issue communicating between processes, queue closed?"
+        )
+        assert self._target_suite is not None, (
+            "This is a child instance, cannot close the connection. (wrong instance?)"
+        )
 
         for _ in self._processes:
             self._write_queue.put("close")
-        self._write_queue__ = self._write_queue # to avoid garbage collection
+        self._write_queue__ = self._write_queue  # to avoid garbage collection
         self._write_queue = None
