@@ -50,7 +50,7 @@ class rf_processtree:
     lines running simultaneously, but it is possible, and trying it out is likely to be a
     good approach to learn about it.
 
-    Example results can be found (here)[./docs/example_results/log.html].
+    Example results can be found [./docs/example_results/log.html|here].
 
     == Table of contents ==
 
@@ -74,7 +74,7 @@ class rf_processtree:
     addition to the forkserver/spawn solutions.
 
     == Alternatives ==
-    There is an effort at (Bosch)[https://github.com/test-fullautomation/robotframework]
+    There is an effort at [https://github.com/test-fullautomation/robotframework|Bosch]
     to modify Robot Framework core to add threads to the Robot Framework language. This
     would also allow running multiple Robot Framework sequences simultaneously. It allows
     defining threads inline (as opposed to this one which needs them to be defined as
