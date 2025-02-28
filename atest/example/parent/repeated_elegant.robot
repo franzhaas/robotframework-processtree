@@ -5,9 +5,12 @@ start it
     Parent.spawn
     Parent.spawn
     Parent.spawn
-    Parent.send_message   Hello1
-    Parent.send_message   Hello2
-    Parent.send_message   Hello3
+    Parent.send_message   Hello01
+    Parent.send_message   Hello02
+    Parent.send_message   Hello03
+    Parent.send_message   Hello11
+    Parent.send_message   Hello12
+    Parent.send_message   Hello13
     Parent.close_connection
     ${MSG}=       Parent.receive_message
     Log           Child said ${MSG}

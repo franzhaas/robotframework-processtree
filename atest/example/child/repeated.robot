@@ -12,8 +12,9 @@ Child
     WHILE   ${True}
         ${STATUS}   ${VALUE}=       Run Keyword And Ignore Error    Child.receive_message        timeout=1
         IF    '${STATUS}' == 'FAIL'    BREAK
-        ${Response}=  Evaluate    $VALUE + ' from child to parent'
         Log     ${STATUS}
+        Log     ${VALUE}
+        ${Response}=  Evaluate    $VALUE + ' from child to parent'
         Log     ${Response}
         Child.send_message   ${Response}
     END
