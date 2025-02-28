@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.0 on linux)" generated="2025-02-28T19:43:34.715546" rpa="false" schemaversion="5">
+<suite id="s1" name="Repeated" source="/home/franz/projects/robotframework-processtree/atest/example/child/repeated.robot">
+<test id="s1-t1" name="Child" line="11">
+<while condition="${True}">
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<msg time="2025-02-28T19:43:34.884465" level="TRACE">Arguments: [ 'Child.receive_message' | 'timeout=1' ]</msg>
+<kw name="Receive Message" owner="Child">
+<msg time="2025-02-28T19:43:34.885986" level="TRACE">Arguments: [ timeout=1.0 ]</msg>
+<arg>timeout=1</arg>
+<doc>Receive message</doc>
+<status status="FAIL" start="2025-02-28T19:43:34.885246" elapsed="0.088413">Execution terminated by signal</status>
+</kw>
+<var>${STATUS}</var>
+<var>${VALUE}</var>
+<arg>Child.receive_message</arg>
+<arg>timeout=1</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="FAIL" start="2025-02-28T19:43:34.883965" elapsed="0.090430">Execution terminated by signal</status>
+</kw>
+<if>
+<branch type="IF" condition="'${STATUS}' == 'FAIL'">
+<break>
+<status status="NOT RUN" start="2025-02-28T19:43:34.976586" elapsed="0.000060"/>
+</break>
+<status status="NOT RUN" start="2025-02-28T19:43:34.976304" elapsed="0.002951"/>
+</branch>
+<status status="NOT RUN" start="2025-02-28T19:43:34.974923" elapsed="0.004491"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${Response}</var>
+<arg>$VALUE + ' from child to parent'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-02-28T19:43:34.979836" elapsed="0.000329"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${STATUS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-28T19:43:34.980624" elapsed="0.000212"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${Response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-28T19:43:34.982622" elapsed="0.000515"/>
+</kw>
+<kw name="Send Message" owner="Child">
+<arg>${Response}</arg>
+<doc>Send a message to the child process</doc>
+<status status="NOT RUN" start="2025-02-28T19:43:34.983856" elapsed="0.005027"/>
+</kw>
+<status status="FAIL" start="2025-02-28T19:43:34.879369" elapsed="0.114307">Execution terminated by signal</status>
+</iter>
+<status status="FAIL" start="2025-02-28T19:43:34.879349" elapsed="0.115044">Execution terminated by signal</status>
+</while>
+<status status="FAIL" start="2025-02-28T19:43:34.874897" elapsed="0.120655">Execution terminated by signal</status>
+</test>
+<status status="FAIL" start="2025-02-28T19:43:34.718119" elapsed="0.288817"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Repeated" id="s1" pass="0" fail="1" skip="0">Repeated</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
