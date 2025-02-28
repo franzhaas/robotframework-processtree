@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.0 on linux)" generated="2025-02-28T21:55:35.697454" rpa="false" schemaversion="5">
+<suite id="s1" name="Repeated" source="/home/franz/projects/robotframework-processtree/atest/example/child/repeated.robot">
+<test id="s1-t1" name="Child" line="11">
+<while condition="${True}">
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<msg time="2025-02-28T21:55:35.747623" level="TRACE">Arguments: [ 'Child.receive_message' | 'timeout=1' ]</msg>
+<kw name="Receive Message" owner="Child">
+<msg time="2025-02-28T21:55:35.748744" level="TRACE">Arguments: [ timeout=1.0 ]</msg>
+<msg time="2025-02-28T21:55:35.750314" level="INFO" html="true">Receiving message from &lt;a href="../redirect.html#W_BWFaYITB66AcfweVF9FA"&gt;log&lt;/a&gt;: Hello fast child</msg>
+<msg time="2025-02-28T21:55:35.754422" level="TRACE">Return: 'Hello fast child'</msg>
+<arg>timeout=1</arg>
+<doc>Receive message</doc>
+<status status="PASS" start="2025-02-28T21:55:35.748228" elapsed="0.006465"/>
+</kw>
+<msg time="2025-02-28T21:55:35.754881" level="TRACE">Return: ('PASS', 'Hello fast child')</msg>
+<msg time="2025-02-28T21:55:35.755212" level="INFO">${STATUS} = PASS</msg>
+<msg time="2025-02-28T21:55:35.755396" level="INFO">${VALUE} = Hello fast child</msg>
+<var>${STATUS}</var>
+<var>${VALUE}</var>
+<arg>Child.receive_message</arg>
+<arg>timeout=1</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-02-28T21:55:35.747253" elapsed="0.008274"/>
+</kw>
+<if>
+<branch type="IF" condition="'${STATUS}' == 'FAIL'">
+<break>
+<status status="NOT RUN" start="2025-02-28T21:55:35.756423" elapsed="0.000051"/>
+</break>
+<status status="NOT RUN" start="2025-02-28T21:55:35.755844" elapsed="0.000737"/>
+</branch>
+<status status="PASS" start="2025-02-28T21:55:35.755763" elapsed="0.000882"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-02-28T21:55:35.757585" level="TRACE">Arguments: [ "$VALUE + ' from child to parent'" ]</msg>
+<msg time="2025-02-28T21:55:35.758591" level="TRACE">Return: 'Hello fast child from child to parent'</msg>
+<msg time="2025-02-28T21:55:35.758862" level="INFO">${Response} = Hello fast child from child to parent</msg>
+<var>${Response}</var>
+<arg>$VALUE + ' from child to parent'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-02-28T21:55:35.757190" elapsed="0.001752"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-28T21:55:35.759770" level="TRACE">Arguments: [ 'PASS' ]</msg>
+<msg time="2025-02-28T21:55:35.760002" level="INFO">PASS</msg>
+<msg time="2025-02-28T21:55:35.760166" level="TRACE">Return: None</msg>
+<arg>${STATUS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-28T21:55:35.759320" elapsed="0.000984"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-28T21:55:35.761340" level="TRACE">Arguments: [ 'Hello fast child from child to parent' ]</msg>
+<msg time="2025-02-28T21:55:35.761574" level="INFO">Hello fast child from child to parent</msg>
+<msg time="2025-02-28T21:55:35.761668" level="TRACE">Return: None</msg>
+<arg>${Response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-28T21:55:35.760639" elapsed="0.001108"/>
+</kw>
+<kw name="Send Message" owner="Child">
+<msg time="2025-02-28T21:55:35.762696" level="TRACE">Arguments: [ 'Hello fast child from child to parent' ]</msg>
+<msg time="2025-02-28T21:55:35.763945" level="INFO" html="true">Sending message to &lt;a href="../redirect.html#Usf1_Yf6Tuu8_K9YZTFDhg"&gt;log&lt;/a&gt;: Hello fast child from child to parent</msg>
+<msg time="2025-02-28T21:55:35.770757" level="TRACE">Return: None</msg>
+<arg>${Response}</arg>
+<doc>Send a message to the child process</doc>
+<status status="PASS" start="2025-02-28T21:55:35.762198" elapsed="0.008759"/>
+</kw>
+<status status="PASS" start="2025-02-28T21:55:35.744846" elapsed="0.026276"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<msg time="2025-02-28T21:55:35.772346" level="TRACE">Arguments: [ 'Child.receive_message' | 'timeout=1' ]</msg>
+<kw name="Receive Message" owner="Child">
+<msg time="2025-02-28T21:55:35.773112" level="TRACE">Arguments: [ timeout=1.0 ]</msg>
+<arg>timeout=1</arg>
+<doc>Receive message</doc>
+<status status="FAIL" start="2025-02-28T21:55:35.772712" elapsed="0.066943">Execution terminated by signal</status>
+</kw>
+<var>${STATUS}</var>
+<var>${VALUE}</var>
+<arg>Child.receive_message</arg>
+<arg>timeout=1</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="FAIL" start="2025-02-28T21:55:35.772128" elapsed="0.068714">Execution terminated by signal</status>
+</kw>
+<if>
+<branch type="IF" condition="'${STATUS}' == 'FAIL'">
+<break>
+<status status="NOT RUN" start="2025-02-28T21:55:35.841516" elapsed="0.000042"/>
+</break>
+<status status="NOT RUN" start="2025-02-28T21:55:35.841400" elapsed="0.000239"/>
+</branch>
+<status status="NOT RUN" start="2025-02-28T21:55:35.841315" elapsed="0.000391"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${Response}</var>
+<arg>$VALUE + ' from child to parent'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-02-28T21:55:35.842102" elapsed="0.000269"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${STATUS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-28T21:55:35.842745" elapsed="0.000170"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${Response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-28T21:55:35.844016" elapsed="0.001669"/>
+</kw>
+<kw name="Send Message" owner="Child">
+<arg>${Response}</arg>
+<doc>Send a message to the child process</doc>
+<status status="NOT RUN" start="2025-02-28T21:55:35.846187" elapsed="0.000168"/>
+</kw>
+<status status="FAIL" start="2025-02-28T21:55:35.771313" elapsed="0.075237">Execution terminated by signal</status>
+</iter>
+<status status="FAIL" start="2025-02-28T21:55:35.744832" elapsed="0.101856">Execution terminated by signal</status>
+</while>
+<status status="FAIL" start="2025-02-28T21:55:35.741341" elapsed="0.105749">Execution terminated by signal</status>
+</test>
+<status status="FAIL" start="2025-02-28T21:55:35.699362" elapsed="0.153509"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Repeated" id="s1" pass="0" fail="1" skip="0">Repeated</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

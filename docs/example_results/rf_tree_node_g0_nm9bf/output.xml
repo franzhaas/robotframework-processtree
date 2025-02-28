@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.0 on linux)" generated="2025-02-28T21:55:34.670624" rpa="false" schemaversion="5">
+<suite id="s1" name="Repeated Elegant" source="/home/franz/projects/robotframework-processtree/atest/example/child/repeated_elegant.robot">
+<test id="s1-t1" name="Child" line="11">
+<kw name="Run Keyword On Received Items Until Queue Is Closed" owner="Child">
+<msg time="2025-02-28T21:55:34.754303" level="TRACE">Arguments: [ 'work on item' ]</msg>
+<msg time="2025-02-28T21:55:34.757621" level="INFO" html="true">Receiving message from &lt;a href="../redirect.html#JZQO8Z3RThilCyLF5bgTXg"&gt;log&lt;/a&gt;: Hello1</msg>
+<kw name="work on item">
+<msg time="2025-02-28T21:55:34.763737" level="TRACE">Arguments: [ ${MSG}='Hello1' ]</msg>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-28T21:55:34.765740" level="TRACE">Arguments: [ 'Child said Hello1' ]</msg>
+<msg time="2025-02-28T21:55:34.765995" level="INFO">Child said Hello1</msg>
+<msg time="2025-02-28T21:55:34.766169" level="TRACE">Return: None</msg>
+<arg>Child said ${MSG}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-28T21:55:34.765172" elapsed="0.001132"/>
+</kw>
+<kw name="Send Message" owner="Child">
+<msg time="2025-02-28T21:55:34.767299" level="TRACE">Arguments: [ 'Child said Hello1' ]</msg>
+<msg time="2025-02-28T21:55:34.769887" level="INFO" html="true">Sending message to &lt;a href="../redirect.html#yD2T-Np3Rr6yzoh2cJehIw"&gt;log&lt;/a&gt;: Child said Hello1</msg>
+<msg time="2025-02-28T21:55:34.770152" level="TRACE">Return: None</msg>
+<arg>Child said ${MSG}</arg>
+<doc>Send a message to the child process</doc>
+<status status="PASS" start="2025-02-28T21:55:34.766747" elapsed="0.003553"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-28T21:55:34.771095" level="TRACE">Arguments: [ '0.1s' ]</msg>
+<msg time="2025-02-28T21:55:34.871825" level="INFO">Slept 100 milliseconds.</msg>
+<msg time="2025-02-28T21:55:34.872104" level="TRACE">Return: None</msg>
+<arg>0.1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-28T21:55:34.770702" elapsed="0.101569"/>
+</kw>
+<msg time="2025-02-28T21:55:34.872502" level="TRACE">Return: None</msg>
+<arg>Hello1</arg>
+<status status="PASS" start="2025-02-28T21:55:34.762917" elapsed="0.109717"/>
+</kw>
+<msg time="2025-02-28T21:55:34.873134" level="TRACE">Return: None</msg>
+<arg>work on item</arg>
+<doc>Read all items from the queue and run the keyword with the item as argument.</doc>
+<status status="PASS" start="2025-02-28T21:55:34.753778" elapsed="0.119533"/>
+</kw>
+<status status="PASS" start="2025-02-28T21:55:34.749390" elapsed="0.125084"/>
+</test>
+<status status="PASS" start="2025-02-28T21:55:34.673205" elapsed="0.211184"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Repeated Elegant" id="s1" pass="1" fail="0" skip="0">Repeated Elegant</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
