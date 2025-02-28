@@ -1,280 +1,304 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.0 on linux)" generated="2025-02-28T21:55:31.978830" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.0 on linux)" generated="2025-02-28T22:10:14.965458" rpa="false" schemaversion="5">
 <suite id="s1" name="Parent" source="/home/franz/projects/robotframework-processtree/atest/example/parent">
 <suite id="s1-s1" name="Repeated" source="/home/franz/projects/robotframework-processtree/atest/example/parent/repeated.robot">
 <test id="s1-s1-t1" name="start it" line="4">
 <kw name="Spawn" owner="Parent">
-<msg time="2025-02-28T21:55:32.069981" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:32.076583" level="INFO" html="true">Started child process for suite atest/example/child/repeated.robot, log file: &lt;a href="./rf_tree_node_wza226v1/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_wza226v1/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_wza226v1/console.log"&gt;console&lt;/a&gt;</msg>
-<msg time="2025-02-28T21:55:32.076831" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:15.059252" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:15.065388" level="INFO" html="true">Started child process for suite atest/example/child/repeated.robot, log file: &lt;a href="./rf_tree_node_bop2aqri/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_bop2aqri/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_bop2aqri/console.log"&gt;console&lt;/a&gt;</msg>
+<msg time="2025-02-28T22:10:15.065991" level="TRACE">Return: None</msg>
 <doc>Spawns a child process which will run the suite provided in the constructor.</doc>
-<status status="PASS" start="2025-02-28T21:55:32.069613" elapsed="0.007375"/>
+<status status="PASS" start="2025-02-28T22:10:15.058686" elapsed="0.007800"/>
 </kw>
 <kw name="Send Message" owner="Parent">
-<msg time="2025-02-28T21:55:32.078381" level="TRACE">Arguments: [ 'Hello1' ]</msg>
-<msg time="2025-02-28T21:55:32.086137" level="INFO" html="true">Sending message to &lt;a href="redirect.html#cRKOC4NaTRu9yPdLLRhWaQ"&gt;log&lt;/a&gt;: Hello1</msg>
-<msg time="2025-02-28T21:55:32.639512" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:15.069671" level="TRACE">Arguments: [ 'Hello1' ]</msg>
+<msg time="2025-02-28T22:10:15.078334" level="INFO" html="true">Sending message to &lt;a href="redirect.html#IaiYGKyBTkmMz-fIwuQ_zw"&gt;log&lt;/a&gt;: Hello1</msg>
+<msg time="2025-02-28T22:10:15.702228" level="TRACE">Return: None</msg>
 <arg>Hello1</arg>
 <doc>Send a message to the child process</doc>
-<status status="PASS" start="2025-02-28T21:55:32.077927" elapsed="0.561770"/>
+<status status="PASS" start="2025-02-28T22:10:15.069282" elapsed="0.633173"/>
 </kw>
 <kw name="Send Message" owner="Parent">
-<msg time="2025-02-28T21:55:32.640385" level="TRACE">Arguments: [ 'Hello2' ]</msg>
-<msg time="2025-02-28T21:55:32.640708" level="INFO" html="true">Sending message to &lt;a href="redirect.html#cUwYQ0JzQIS2oZx3586lTw"&gt;log&lt;/a&gt;: Hello2</msg>
-<msg time="2025-02-28T21:55:32.642387" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:15.703304" level="TRACE">Arguments: [ 'Hello2' ]</msg>
+<msg time="2025-02-28T22:10:15.703713" level="INFO" html="true">Sending message to &lt;a href="redirect.html#7V7MjH7PRHu4niAQIIaIEw"&gt;log&lt;/a&gt;: Hello2</msg>
+<msg time="2025-02-28T22:10:15.707932" level="TRACE">Return: None</msg>
 <arg>Hello2</arg>
 <doc>Send a message to the child process</doc>
-<status status="PASS" start="2025-02-28T21:55:32.640139" elapsed="0.002421"/>
+<status status="PASS" start="2025-02-28T22:10:15.702944" elapsed="0.005205"/>
 </kw>
 <kw name="Send Message" owner="Parent">
-<msg time="2025-02-28T21:55:32.643200" level="TRACE">Arguments: [ 'Hello3' ]</msg>
-<msg time="2025-02-28T21:55:32.643507" level="INFO" html="true">Sending message to &lt;a href="redirect.html#ohAUhfJGTseZfVgeGPY2sw"&gt;log&lt;/a&gt;: Hello3</msg>
-<msg time="2025-02-28T21:55:32.648361" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:15.708886" level="TRACE">Arguments: [ 'Hello3' ]</msg>
+<msg time="2025-02-28T22:10:15.709291" level="INFO" html="true">Sending message to &lt;a href="redirect.html#c63YSL48TIufw1bp3ok2Bw"&gt;log&lt;/a&gt;: Hello3</msg>
+<msg time="2025-02-28T22:10:15.711568" level="TRACE">Return: None</msg>
 <arg>Hello3</arg>
 <doc>Send a message to the child process</doc>
-<status status="PASS" start="2025-02-28T21:55:32.642936" elapsed="0.005614"/>
+<status status="PASS" start="2025-02-28T22:10:15.708602" elapsed="0.003157"/>
 </kw>
 <kw name="Receive Message" owner="Parent">
-<msg time="2025-02-28T21:55:32.649458" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:32.771468" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#WkdETE-DSmKQ05Vq0wMX7Q"&gt;log&lt;/a&gt;: Hello1 from child to parent</msg>
-<msg time="2025-02-28T21:55:32.772714" level="TRACE">Return: 'Hello1 from child to parent'</msg>
-<msg time="2025-02-28T21:55:32.772942" level="INFO">${MSG} = Hello1 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.712532" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:15.843207" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#tQjhxW2yQpGlv3pi7eyfIQ"&gt;log&lt;/a&gt;: Hello1 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.845457" level="TRACE">Return: 'Hello1 from child to parent'</msg>
+<msg time="2025-02-28T22:10:15.845730" level="INFO">${MSG} = Hello1 from child to parent</msg>
 <var>${MSG}</var>
 <doc>Receive message</doc>
-<status status="PASS" start="2025-02-28T21:55:32.649206" elapsed="0.123786"/>
+<status status="PASS" start="2025-02-28T22:10:15.712279" elapsed="0.133504"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-28T21:55:32.773972" level="TRACE">Arguments: [ 'Child said Hello1 from child to parent' ]</msg>
-<msg time="2025-02-28T21:55:32.774154" level="INFO">Child said Hello1 from child to parent</msg>
-<msg time="2025-02-28T21:55:32.774238" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:15.847184" level="TRACE">Arguments: [ 'Child said Hello1 from child to parent' ]</msg>
+<msg time="2025-02-28T22:10:15.847348" level="INFO">Child said Hello1 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.847431" level="TRACE">Return: None</msg>
 <arg>Child said ${MSG}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-28T21:55:32.773670" elapsed="0.000627"/>
+<status status="PASS" start="2025-02-28T22:10:15.846718" elapsed="0.000775"/>
 </kw>
 <kw name="Receive Message" owner="Parent">
-<msg time="2025-02-28T21:55:32.774794" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:32.782649" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#xsvxR4fJQfOKMgSzu6vQrA"&gt;log&lt;/a&gt;: Hello2 from child to parent</msg>
-<msg time="2025-02-28T21:55:32.784651" level="TRACE">Return: 'Hello2 from child to parent'</msg>
-<msg time="2025-02-28T21:55:32.784923" level="INFO">${MSG} = Hello2 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.848186" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:15.861392" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#pAPZ-Nd5QkS83gJkMHhyuA"&gt;log&lt;/a&gt;: Hello2 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.863785" level="TRACE">Return: 'Hello2 from child to parent'</msg>
+<msg time="2025-02-28T22:10:15.864073" level="INFO">${MSG} = Hello2 from child to parent</msg>
 <var>${MSG}</var>
 <doc>Receive message</doc>
-<status status="PASS" start="2025-02-28T21:55:32.774646" elapsed="0.010336"/>
+<status status="PASS" start="2025-02-28T22:10:15.847939" elapsed="0.016209"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-28T21:55:32.785807" level="TRACE">Arguments: [ 'Child said Hello2 from child to parent' ]</msg>
-<msg time="2025-02-28T21:55:32.785988" level="INFO">Child said Hello2 from child to parent</msg>
-<msg time="2025-02-28T21:55:32.786117" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:15.864921" level="TRACE">Arguments: [ 'Child said Hello2 from child to parent' ]</msg>
+<msg time="2025-02-28T22:10:15.865115" level="INFO">Child said Hello2 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.865181" level="TRACE">Return: None</msg>
 <arg>Child said ${MSG}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-28T21:55:32.785432" elapsed="0.000760"/>
+<status status="PASS" start="2025-02-28T22:10:15.864554" elapsed="0.000687"/>
 </kw>
 <kw name="Receive Message" owner="Parent">
-<msg time="2025-02-28T21:55:32.786804" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:32.796533" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#cN8VNqAYSGC8esUVFXR_qw"&gt;log&lt;/a&gt;: Hello3 from child to parent</msg>
-<msg time="2025-02-28T21:55:32.799890" level="TRACE">Return: 'Hello3 from child to parent'</msg>
-<msg time="2025-02-28T21:55:32.800207" level="INFO">${MSG} = Hello3 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.865770" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:15.878305" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#xKS58H7nRrCqxdDTMfTfrw"&gt;log&lt;/a&gt;: Hello3 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.880358" level="TRACE">Return: 'Hello3 from child to parent'</msg>
+<msg time="2025-02-28T22:10:15.880600" level="INFO">${MSG} = Hello3 from child to parent</msg>
 <var>${MSG}</var>
 <doc>Receive message</doc>
-<status status="PASS" start="2025-02-28T21:55:32.786619" elapsed="0.013653"/>
+<status status="PASS" start="2025-02-28T22:10:15.865596" elapsed="0.015047"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-28T21:55:32.801749" level="TRACE">Arguments: [ 'Child said Hello3 from child to parent' ]</msg>
-<msg time="2025-02-28T21:55:32.801954" level="INFO">Child said Hello3 from child to parent</msg>
-<msg time="2025-02-28T21:55:32.802131" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:15.881436" level="TRACE">Arguments: [ 'Child said Hello3 from child to parent' ]</msg>
+<msg time="2025-02-28T22:10:15.881585" level="INFO">Child said Hello3 from child to parent</msg>
+<msg time="2025-02-28T22:10:15.881645" level="TRACE">Return: None</msg>
 <arg>Child said ${MSG}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-28T21:55:32.801354" elapsed="0.000880"/>
+<status status="PASS" start="2025-02-28T22:10:15.881097" elapsed="0.000603"/>
 </kw>
 <kw name="Wait For Processes" owner="Parent">
-<msg time="2025-02-28T21:55:32.803736" level="TRACE">Arguments: [ timeout=2.0 ]</msg>
-<msg time="2025-02-28T21:55:34.015255" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:15.882376" level="TRACE">Arguments: [ timeout=2.0 ]</msg>
+<msg time="2025-02-28T22:10:17.057355" level="TRACE">Return: None</msg>
 <arg>timeout=2</arg>
 <doc>Wait for all child processes to finish</doc>
-<status status="PASS" start="2025-02-28T21:55:32.803014" elapsed="1.212418"/>
+<status status="PASS" start="2025-02-28T22:10:15.882062" elapsed="1.175481"/>
 </kw>
-<status status="PASS" start="2025-02-28T21:55:32.064494" elapsed="1.951295"/>
+<status status="PASS" start="2025-02-28T22:10:15.054168" elapsed="2.003725"/>
 </test>
-<status status="PASS" start="2025-02-28T21:55:32.026947" elapsed="1.990638"/>
+<status status="PASS" start="2025-02-28T22:10:15.014386" elapsed="2.045417"/>
 </suite>
 <suite id="s1-s2" name="Repeated Elegant" source="/home/franz/projects/robotframework-processtree/atest/example/parent/repeated_elegant.robot">
 <test id="s1-s2-t1" name="start it" line="4">
 <kw name="Spawn" owner="Parent">
-<msg time="2025-02-28T21:55:34.036070" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.038359" level="INFO" html="true">Started child process for suite atest/example/child/repeated_elegant.robot, log file: &lt;a href="./rf_tree_node_vo3z0lr7/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_vo3z0lr7/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_vo3z0lr7/console.log"&gt;console&lt;/a&gt;</msg>
-<msg time="2025-02-28T21:55:34.038552" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.084786" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.086849" level="INFO" html="true">Started child process for suite atest/example/child/repeated_elegant.robot, log file: &lt;a href="./rf_tree_node_0vaumu46/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_0vaumu46/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_0vaumu46/console.log"&gt;console&lt;/a&gt;</msg>
+<msg time="2025-02-28T22:10:17.087011" level="TRACE">Return: None</msg>
 <doc>Spawns a child process which will run the suite provided in the constructor.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.035803" elapsed="0.002857"/>
+<status status="PASS" start="2025-02-28T22:10:17.084578" elapsed="0.002545"/>
 </kw>
 <kw name="Spawn" owner="Parent">
-<msg time="2025-02-28T21:55:34.039357" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.043802" level="INFO" html="true">Started child process for suite atest/example/child/repeated_elegant.robot, log file: &lt;a href="./rf_tree_node_g0_nm9bf/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_g0_nm9bf/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_g0_nm9bf/console.log"&gt;console&lt;/a&gt;</msg>
-<msg time="2025-02-28T21:55:34.043973" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.087719" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.092547" level="INFO" html="true">Started child process for suite atest/example/child/repeated_elegant.robot, log file: &lt;a href="./rf_tree_node_5zvsv9x7/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_5zvsv9x7/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_5zvsv9x7/console.log"&gt;console&lt;/a&gt;</msg>
+<msg time="2025-02-28T22:10:17.092787" level="TRACE">Return: None</msg>
 <doc>Spawns a child process which will run the suite provided in the constructor.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.039130" elapsed="0.004973"/>
+<status status="PASS" start="2025-02-28T22:10:17.087518" elapsed="0.005390"/>
 </kw>
 <kw name="Spawn" owner="Parent">
-<msg time="2025-02-28T21:55:34.044983" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.054136" level="INFO" html="true">Started child process for suite atest/example/child/repeated_elegant.robot, log file: &lt;a href="./rf_tree_node_iqo3vibi/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_iqo3vibi/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_iqo3vibi/console.log"&gt;console&lt;/a&gt;</msg>
-<msg time="2025-02-28T21:55:34.054361" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.093809" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.101154" level="INFO" html="true">Started child process for suite atest/example/child/repeated_elegant.robot, log file: &lt;a href="./rf_tree_node_2dccz07q/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_2dccz07q/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_2dccz07q/console.log"&gt;console&lt;/a&gt;</msg>
+<msg time="2025-02-28T22:10:17.101344" level="TRACE">Return: None</msg>
 <doc>Spawns a child process which will run the suite provided in the constructor.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.044751" elapsed="0.009724"/>
+<status status="PASS" start="2025-02-28T22:10:17.093594" elapsed="0.007855"/>
 </kw>
 <kw name="Send Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.055250" level="TRACE">Arguments: [ 'Hello1' ]</msg>
-<msg time="2025-02-28T21:55:34.059219" level="INFO" html="true">Sending message to &lt;a href="redirect.html#N15P9cbCSP2TNEKturLhEw"&gt;log&lt;/a&gt;: Hello1</msg>
-<msg time="2025-02-28T21:55:34.065413" level="TRACE">Return: None</msg>
-<arg>Hello1</arg>
+<msg time="2025-02-28T22:10:17.102276" level="TRACE">Arguments: [ 'Hello01' ]</msg>
+<msg time="2025-02-28T22:10:17.107242" level="INFO" html="true">Sending message to &lt;a href="redirect.html#ePzpv8vTTCmecxzPav7yBQ"&gt;log&lt;/a&gt;: Hello01</msg>
+<msg time="2025-02-28T22:10:17.107455" level="TRACE">Return: None</msg>
+<arg>Hello01</arg>
 <doc>Send a message to the child process</doc>
-<status status="PASS" start="2025-02-28T21:55:34.054927" elapsed="0.010683"/>
+<status status="PASS" start="2025-02-28T22:10:17.101919" elapsed="0.005645"/>
 </kw>
 <kw name="Send Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.066442" level="TRACE">Arguments: [ 'Hello2' ]</msg>
-<msg time="2025-02-28T21:55:34.070201" level="INFO" html="true">Sending message to &lt;a href="redirect.html#vg_MCdZFQSSJa7cAyU00XA"&gt;log&lt;/a&gt;: Hello2</msg>
-<msg time="2025-02-28T21:55:34.072469" level="TRACE">Return: None</msg>
-<arg>Hello2</arg>
+<msg time="2025-02-28T22:10:17.108428" level="TRACE">Arguments: [ 'Hello02' ]</msg>
+<msg time="2025-02-28T22:10:17.108791" level="INFO" html="true">Sending message to &lt;a href="redirect.html#NAlckeRcSu2LLkTyBjet6w"&gt;log&lt;/a&gt;: Hello02</msg>
+<msg time="2025-02-28T22:10:17.120973" level="TRACE">Return: None</msg>
+<arg>Hello02</arg>
 <doc>Send a message to the child process</doc>
-<status status="PASS" start="2025-02-28T21:55:34.066124" elapsed="0.006598"/>
+<status status="PASS" start="2025-02-28T22:10:17.108104" elapsed="0.013097"/>
 </kw>
 <kw name="Send Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.073494" level="TRACE">Arguments: [ 'Hello3' ]</msg>
-<msg time="2025-02-28T21:55:34.077210" level="INFO" html="true">Sending message to &lt;a href="redirect.html#rC_JnRjmTAq7ZL-UQcjx4g"&gt;log&lt;/a&gt;: Hello3</msg>
-<msg time="2025-02-28T21:55:34.086259" level="TRACE">Return: None</msg>
-<arg>Hello3</arg>
+<msg time="2025-02-28T22:10:17.125666" level="TRACE">Arguments: [ 'Hello03' ]</msg>
+<msg time="2025-02-28T22:10:17.126108" level="INFO" html="true">Sending message to &lt;a href="redirect.html#3WqofMtdSzqD5QepqxW6wg"&gt;log&lt;/a&gt;: Hello03</msg>
+<msg time="2025-02-28T22:10:17.131231" level="TRACE">Return: None</msg>
+<arg>Hello03</arg>
 <doc>Send a message to the child process</doc>
-<status status="PASS" start="2025-02-28T21:55:34.073206" elapsed="0.013239"/>
+<status status="PASS" start="2025-02-28T22:10:17.125325" elapsed="0.006113"/>
+</kw>
+<kw name="Send Message" owner="Parent">
+<msg time="2025-02-28T22:10:17.132452" level="TRACE">Arguments: [ 'Hello11' ]</msg>
+<msg time="2025-02-28T22:10:17.132884" level="INFO" html="true">Sending message to &lt;a href="redirect.html#E8RTSAaFQcGve0rOcwfdWA"&gt;log&lt;/a&gt;: Hello11</msg>
+<msg time="2025-02-28T22:10:17.138473" level="TRACE">Return: None</msg>
+<arg>Hello11</arg>
+<doc>Send a message to the child process</doc>
+<status status="PASS" start="2025-02-28T22:10:17.132095" elapsed="0.006669"/>
+</kw>
+<kw name="Send Message" owner="Parent">
+<msg time="2025-02-28T22:10:17.139849" level="TRACE">Arguments: [ 'Hello12' ]</msg>
+<msg time="2025-02-28T22:10:17.140232" level="INFO" html="true">Sending message to &lt;a href="redirect.html#B6DFxq1eQeCBhmthWCMXHA"&gt;log&lt;/a&gt;: Hello12</msg>
+<msg time="2025-02-28T22:10:17.145263" level="TRACE">Return: None</msg>
+<arg>Hello12</arg>
+<doc>Send a message to the child process</doc>
+<status status="PASS" start="2025-02-28T22:10:17.139558" elapsed="0.005883"/>
+</kw>
+<kw name="Send Message" owner="Parent">
+<msg time="2025-02-28T22:10:17.146105" level="TRACE">Arguments: [ 'Hello13' ]</msg>
+<msg time="2025-02-28T22:10:17.146394" level="INFO" html="true">Sending message to &lt;a href="redirect.html#Q_LA724dRVqiTBR96K9RCQ"&gt;log&lt;/a&gt;: Hello13</msg>
+<msg time="2025-02-28T22:10:17.149270" level="TRACE">Return: None</msg>
+<arg>Hello13</arg>
+<doc>Send a message to the child process</doc>
+<status status="PASS" start="2025-02-28T22:10:17.145828" elapsed="0.003609"/>
 </kw>
 <kw name="Close Connection" owner="Parent">
-<msg time="2025-02-28T21:55:34.087194" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.087441" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.150217" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.150530" level="TRACE">Return: None</msg>
 <doc>Close the queue, no more items can be sent.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.086922" elapsed="0.000665"/>
+<status status="PASS" start="2025-02-28T22:10:17.149961" elapsed="0.000901"/>
 </kw>
 <kw name="Receive Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.090535" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.771994" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#Z3LCJYP0SZ-e_0TpeHXv_w"&gt;log&lt;/a&gt;: Child said Hello1</msg>
-<msg time="2025-02-28T21:55:34.774044" level="TRACE">Return: 'Child said Hello1'</msg>
-<msg time="2025-02-28T21:55:34.774375" level="INFO">${MSG} = Child said Hello1</msg>
+<msg time="2025-02-28T22:10:17.155430" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.865829" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#xBI_HGyyRquKESbDKhdvmQ"&gt;log&lt;/a&gt;: Child said Hello01</msg>
+<msg time="2025-02-28T22:10:17.867722" level="TRACE">Return: 'Child said Hello01'</msg>
+<msg time="2025-02-28T22:10:17.868015" level="INFO">${MSG} = Child said Hello01</msg>
 <var>${MSG}</var>
 <doc>Receive message</doc>
-<status status="PASS" start="2025-02-28T21:55:34.090107" elapsed="0.684367"/>
+<status status="PASS" start="2025-02-28T22:10:17.155060" elapsed="0.713093"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-28T21:55:34.775561" level="TRACE">Arguments: [ 'Child said Child said Hello1' ]</msg>
-<msg time="2025-02-28T21:55:34.775788" level="INFO">Child said Child said Hello1</msg>
-<msg time="2025-02-28T21:55:34.775901" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.869744" level="TRACE">Arguments: [ 'Child said Child said Hello01' ]</msg>
+<msg time="2025-02-28T22:10:17.870075" level="INFO">Child said Child said Hello01</msg>
+<msg time="2025-02-28T22:10:17.870211" level="TRACE">Return: None</msg>
 <arg>Child said ${MSG}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.775075" elapsed="0.000941"/>
+<status status="PASS" start="2025-02-28T22:10:17.868641" elapsed="0.001683"/>
 </kw>
 <kw name="Receive Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.776974" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.807682" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#gcVEbJt8TTGFDuu4gtdNGA"&gt;log&lt;/a&gt;: Child said Hello2</msg>
-<msg time="2025-02-28T21:55:34.814671" level="TRACE">Return: 'Child said Hello2'</msg>
-<msg time="2025-02-28T21:55:34.814985" level="INFO">${MSG} = Child said Hello2</msg>
+<msg time="2025-02-28T22:10:17.871765" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.896542" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#spCrOnw0RPu6EFMdOxRBgw"&gt;log&lt;/a&gt;: Child said Hello02</msg>
+<msg time="2025-02-28T22:10:17.898563" level="TRACE">Return: 'Child said Hello02'</msg>
+<msg time="2025-02-28T22:10:17.898951" level="INFO">${MSG} = Child said Hello02</msg>
 <var>${MSG}</var>
 <doc>Receive message</doc>
-<status status="PASS" start="2025-02-28T21:55:34.776690" elapsed="0.038460"/>
+<status status="PASS" start="2025-02-28T22:10:17.871486" elapsed="0.027625"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-28T21:55:34.816300" level="TRACE">Arguments: [ 'Child said Child said Hello2' ]</msg>
-<msg time="2025-02-28T21:55:34.816602" level="INFO">Child said Child said Hello2</msg>
-<msg time="2025-02-28T21:55:34.816736" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.900290" level="TRACE">Arguments: [ 'Child said Child said Hello02' ]</msg>
+<msg time="2025-02-28T22:10:17.900597" level="INFO">Child said Child said Hello02</msg>
+<msg time="2025-02-28T22:10:17.900721" level="TRACE">Return: None</msg>
 <arg>Child said ${MSG}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.815712" elapsed="0.001129"/>
+<status status="PASS" start="2025-02-28T22:10:17.899655" elapsed="0.001175"/>
 </kw>
 <kw name="Receive Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.817907" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.864715" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#G5z72MQVSRakW_UwBQZ7eg"&gt;log&lt;/a&gt;: Child said Hello3</msg>
-<msg time="2025-02-28T21:55:34.867834" level="TRACE">Return: 'Child said Hello3'</msg>
-<msg time="2025-02-28T21:55:34.868594" level="INFO">${MSG} = Child said Hello3</msg>
+<msg time="2025-02-28T22:10:17.901669" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.948240" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#AUrJKC1dRwyxJigtOrdpNQ"&gt;log&lt;/a&gt;: Child said Hello03</msg>
+<msg time="2025-02-28T22:10:17.950498" level="TRACE">Return: 'Child said Hello03'</msg>
+<msg time="2025-02-28T22:10:17.950823" level="INFO">${MSG} = Child said Hello03</msg>
 <var>${MSG}</var>
 <doc>Receive message</doc>
-<status status="PASS" start="2025-02-28T21:55:34.817557" elapsed="0.051236"/>
+<status status="PASS" start="2025-02-28T22:10:17.901360" elapsed="0.049562"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-28T21:55:34.870756" level="TRACE">Arguments: [ 'Child said Child said Hello3' ]</msg>
-<msg time="2025-02-28T21:55:34.871001" level="INFO">Child said Child said Hello3</msg>
-<msg time="2025-02-28T21:55:34.871199" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.952873" level="TRACE">Arguments: [ 'Child said Child said Hello03' ]</msg>
+<msg time="2025-02-28T22:10:17.953568" level="INFO">Child said Child said Hello03</msg>
+<msg time="2025-02-28T22:10:17.953738" level="TRACE">Return: None</msg>
 <arg>Child said ${MSG}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.870155" elapsed="0.001166"/>
+<status status="PASS" start="2025-02-28T22:10:17.951960" elapsed="0.001920"/>
 </kw>
-<status status="PASS" start="2025-02-28T21:55:34.032740" elapsed="0.839100"/>
+<status status="PASS" start="2025-02-28T22:10:17.081637" elapsed="0.873019"/>
 </test>
-<status status="PASS" start="2025-02-28T21:55:34.019529" elapsed="0.855893"/>
+<status status="PASS" start="2025-02-28T22:10:17.061917" elapsed="0.895741"/>
 </suite>
 <suite id="s1-s3" name="Simple" source="/home/franz/projects/robotframework-processtree/atest/example/parent/simple.robot">
 <test id="s1-s3-t1" name="start it" line="4">
 <kw name="Spawn" owner="Parent">
-<msg time="2025-02-28T21:55:34.905134" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.913382" level="INFO" html="true">Started child process for suite atest/example/child/repeated.robot, log file: &lt;a href="./rf_tree_node__lncuxpj/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node__lncuxpj/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node__lncuxpj/console.log"&gt;console&lt;/a&gt;</msg>
-<msg time="2025-02-28T21:55:34.913628" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.975624" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.979975" level="INFO" html="true">Started child process for suite atest/example/child/repeated.robot, log file: &lt;a href="./rf_tree_node_cwsr62p5/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_cwsr62p5/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_cwsr62p5/console.log"&gt;console&lt;/a&gt;</msg>
+<msg time="2025-02-28T22:10:17.980257" level="TRACE">Return: None</msg>
 <doc>Spawns a child process which will run the suite provided in the constructor.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.904805" elapsed="0.008993"/>
+<status status="PASS" start="2025-02-28T22:10:17.975366" elapsed="0.005270"/>
 </kw>
 <kw name="Spawn" owner="Parent">
-<msg time="2025-02-28T21:55:34.917510" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:34.934372" level="INFO" html="true">Started child process for suite atest/example/child/repeated.robot, log file: &lt;a href="./rf_tree_node_kaxrk5zv/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_kaxrk5zv/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_kaxrk5zv/console.log"&gt;console&lt;/a&gt;</msg>
-<msg time="2025-02-28T21:55:34.934643" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.981700" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:17.985717" level="INFO" html="true">Started child process for suite atest/example/child/repeated.robot, log file: &lt;a href="./rf_tree_node_y80yutry/log.html"&gt;log&lt;/a&gt;, report file: &lt;a href="rf_tree_node_y80yutry/report.html"&gt;report&lt;/a&gt;, console file: &lt;a href="rf_tree_node_y80yutry/console.log"&gt;console&lt;/a&gt;</msg>
+<msg time="2025-02-28T22:10:17.985920" level="TRACE">Return: None</msg>
 <doc>Spawns a child process which will run the suite provided in the constructor.</doc>
-<status status="PASS" start="2025-02-28T21:55:34.917243" elapsed="0.017551"/>
+<status status="PASS" start="2025-02-28T22:10:17.981347" elapsed="0.004735"/>
 </kw>
 <kw name="Send Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.940831" level="TRACE">Arguments: [ 'Hello fast child' ]</msg>
-<msg time="2025-02-28T21:55:34.951154" level="INFO" html="true">Sending message to &lt;a href="redirect.html#ps6Q2UetQQWQDd-JVuWcTQ"&gt;log&lt;/a&gt;: Hello fast child</msg>
-<msg time="2025-02-28T21:55:34.951652" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.986940" level="TRACE">Arguments: [ 'Hello fast child' ]</msg>
+<msg time="2025-02-28T22:10:17.987759" level="INFO" html="true">Sending message to &lt;a href="redirect.html#adwi8rOjQpe9Zd-x0tskGw"&gt;log&lt;/a&gt;: Hello fast child</msg>
+<msg time="2025-02-28T22:10:17.994308" level="TRACE">Return: None</msg>
 <arg>Hello fast child</arg>
 <doc>Send a message to the child process</doc>
-<status status="PASS" start="2025-02-28T21:55:34.940397" elapsed="0.011465"/>
+<status status="PASS" start="2025-02-28T22:10:17.986603" elapsed="0.007918"/>
 </kw>
 <kw name="Send Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.952762" level="TRACE">Arguments: [ 'Hello slow child' ]</msg>
-<msg time="2025-02-28T21:55:34.953458" level="INFO" html="true">Sending message to &lt;a href="redirect.html#v6UURyNFS5ei7O6MvjlHCA"&gt;log&lt;/a&gt;: Hello slow child</msg>
-<msg time="2025-02-28T21:55:34.964298" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:17.995487" level="TRACE">Arguments: [ 'Hello slow child' ]</msg>
+<msg time="2025-02-28T22:10:17.995921" level="INFO" html="true">Sending message to &lt;a href="redirect.html#u1FdLZfKRKKZwj3knIE2Bg"&gt;log&lt;/a&gt;: Hello slow child</msg>
+<msg time="2025-02-28T22:10:17.998853" level="TRACE">Return: None</msg>
 <arg>Hello slow child</arg>
 <doc>Send a message to the child process</doc>
-<status status="PASS" start="2025-02-28T21:55:34.952439" elapsed="0.012109"/>
+<status status="PASS" start="2025-02-28T22:10:17.995089" elapsed="0.004038"/>
 </kw>
 <kw name="Receive Message" owner="Parent">
-<msg time="2025-02-28T21:55:34.965465" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:35.764700" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#ZVsM1_6rQUie9Is-ZgKaHA"&gt;log&lt;/a&gt;: Hello fast child from child to parent</msg>
-<msg time="2025-02-28T21:55:35.769463" level="TRACE">Return: 'Hello fast child from child to parent'</msg>
-<msg time="2025-02-28T21:55:35.769751" level="INFO">${MSG} = Hello fast child from child to parent</msg>
+<msg time="2025-02-28T22:10:17.999983" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:18.956351" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#eiYRZG_kRWWLXthoJQRSvA"&gt;log&lt;/a&gt;: Hello fast child from child to parent</msg>
+<msg time="2025-02-28T22:10:18.961012" level="TRACE">Return: 'Hello fast child from child to parent'</msg>
+<msg time="2025-02-28T22:10:18.961314" level="INFO">${MSG} = Hello fast child from child to parent</msg>
 <var>${MSG}</var>
 <doc>Receive message</doc>
-<status status="PASS" start="2025-02-28T21:55:34.965148" elapsed="0.804687"/>
+<status status="PASS" start="2025-02-28T22:10:17.999706" elapsed="0.961672"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-28T21:55:35.770697" level="TRACE">Arguments: [ 'Child said Hello fast child from child to parent' ]</msg>
-<msg time="2025-02-28T21:55:35.770869" level="INFO">Child said Hello fast child from child to parent</msg>
-<msg time="2025-02-28T21:55:35.770952" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:18.966479" level="TRACE">Arguments: [ 'Child said Hello fast child from child to parent' ]</msg>
+<msg time="2025-02-28T22:10:18.966731" level="INFO">Child said Hello fast child from child to parent</msg>
+<msg time="2025-02-28T22:10:18.966831" level="TRACE">Return: None</msg>
 <arg>Child said ${MSG}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-28T21:55:35.770334" elapsed="0.000729"/>
+<status status="PASS" start="2025-02-28T22:10:18.961868" elapsed="0.005052"/>
 </kw>
 <kw name="Receive Message" owner="Parent">
-<msg time="2025-02-28T21:55:35.771675" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-02-28T21:55:35.778058" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#0mOhtxY8TrK5ElEFB0eMMQ"&gt;log&lt;/a&gt;: Hello slow child from child to parent</msg>
-<msg time="2025-02-28T21:55:35.779526" level="TRACE">Return: 'Hello slow child from child to parent'</msg>
-<msg time="2025-02-28T21:55:35.779791" level="INFO">${MSG} = Hello slow child from child to parent</msg>
+<msg time="2025-02-28T22:10:18.967699" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-02-28T22:10:18.969261" level="INFO" html="true">Receiving message from &lt;a href="redirect.html#yyZ6HBD_Qv2NyAD1hsGeHg"&gt;log&lt;/a&gt;: Hello slow child from child to parent</msg>
+<msg time="2025-02-28T22:10:18.973426" level="TRACE">Return: 'Hello slow child from child to parent'</msg>
+<msg time="2025-02-28T22:10:18.973692" level="INFO">${MSG} = Hello slow child from child to parent</msg>
 <var>${MSG}</var>
 <doc>Receive message</doc>
-<status status="PASS" start="2025-02-28T21:55:35.771459" elapsed="0.008390"/>
+<status status="PASS" start="2025-02-28T22:10:18.967478" elapsed="0.006332"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-02-28T21:55:35.780633" level="TRACE">Arguments: [ 'Child said Hello slow child from child to parent' ]</msg>
-<msg time="2025-02-28T21:55:35.780808" level="INFO">Child said Hello slow child from child to parent</msg>
-<msg time="2025-02-28T21:55:35.780923" level="TRACE">Return: None</msg>
+<msg time="2025-02-28T22:10:18.974621" level="TRACE">Arguments: [ 'Child said Hello slow child from child to parent' ]</msg>
+<msg time="2025-02-28T22:10:18.974809" level="INFO">Child said Hello slow child from child to parent</msg>
+<msg time="2025-02-28T22:10:18.974913" level="TRACE">Return: None</msg>
 <arg>Child said ${MSG}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-02-28T21:55:35.780287" elapsed="0.000717"/>
+<status status="PASS" start="2025-02-28T22:10:18.974262" elapsed="0.000732"/>
 </kw>
-<status status="PASS" start="2025-02-28T21:55:34.895813" elapsed="0.885592"/>
+<status status="PASS" start="2025-02-28T22:10:17.969193" elapsed="1.006268"/>
 </test>
-<status status="PASS" start="2025-02-28T21:55:34.878645" elapsed="0.904585"/>
+<status status="PASS" start="2025-02-28T22:10:17.959718" elapsed="1.022673"/>
 </suite>
-<status status="PASS" start="2025-02-28T21:55:31.980812" elapsed="3.803875"/>
+<status status="PASS" start="2025-02-28T22:10:14.967447" elapsed="4.018441"/>
 </suite>
 <statistics>
 <total>

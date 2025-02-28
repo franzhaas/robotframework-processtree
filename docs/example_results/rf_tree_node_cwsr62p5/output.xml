@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.0 on linux)" generated="2025-02-28T22:10:18.888685" rpa="false" schemaversion="5">
+<suite id="s1" name="Repeated" source="/home/franz/projects/robotframework-processtree/atest/example/child/repeated.robot">
+<test id="s1-t1" name="Child" line="11">
+<while condition="${True}">
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<msg time="2025-02-28T22:10:18.989432" level="TRACE">Arguments: [ 'Child.receive_message' | 'timeout=1' ]</msg>
+<kw name="Receive Message" owner="Child">
+<msg time="2025-02-28T22:10:18.991048" level="TRACE">Arguments: [ timeout=1.0 ]</msg>
+<arg>timeout=1</arg>
+<doc>Receive message</doc>
+<status status="FAIL" start="2025-02-28T22:10:18.990112" elapsed="0.088388">Execution terminated by signal</status>
+</kw>
+<var>${STATUS}</var>
+<var>${VALUE}</var>
+<arg>Child.receive_message</arg>
+<arg>timeout=1</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="FAIL" start="2025-02-28T22:10:18.988965" elapsed="0.089742">Execution terminated by signal</status>
+</kw>
+<if>
+<branch type="IF" condition="'${STATUS}' == 'FAIL'">
+<break>
+<status status="NOT RUN" start="2025-02-28T22:10:19.080439" elapsed="0.000077"/>
+</break>
+<status status="NOT RUN" start="2025-02-28T22:10:19.078966" elapsed="0.001647"/>
+</branch>
+<status status="NOT RUN" start="2025-02-28T22:10:19.078894" elapsed="0.001780"/>
+</if>
+<kw name="Log" owner="BuiltIn">
+<arg>${STATUS}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-28T22:10:19.080978" elapsed="0.000234"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${VALUE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-28T22:10:19.081561" elapsed="0.000203"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${Response}</var>
+<arg>$VALUE + ' from child to parent'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-02-28T22:10:19.087659" elapsed="0.000263"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${Response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-28T22:10:19.088395" elapsed="0.000218"/>
+</kw>
+<kw name="Send Message" owner="Child">
+<arg>${Response}</arg>
+<doc>Send a message to the child process</doc>
+<status status="NOT RUN" start="2025-02-28T22:10:19.088969" elapsed="0.000233"/>
+</kw>
+<status status="FAIL" start="2025-02-28T22:10:18.986001" elapsed="0.103449">Execution terminated by signal</status>
+</iter>
+<status status="FAIL" start="2025-02-28T22:10:18.985990" elapsed="0.103644">Execution terminated by signal</status>
+</while>
+<status status="FAIL" start="2025-02-28T22:10:18.982574" elapsed="0.114542">Execution terminated by signal</status>
+</test>
+<status status="FAIL" start="2025-02-28T22:10:18.894241" elapsed="0.204742"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Repeated" id="s1" pass="0" fail="1" skip="0">Repeated</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
