@@ -12,7 +12,7 @@ There is another approach out there: [AIO](https://github.com/test-fullautomatio
 | startup overhead       | process                             | thread         |
 | communication overhead | serialization/IPC                   | within process |
 | logging                | per process, linked with hyperlinks | debug.log      |
-| locks                  | not supported (by choicd)           | supported      |
+| locks                  | not supported (by choice)           | supported      |
 | deadlocks              | no                                  | possible       |
 | live locks             | no                                  | possible       |
 
